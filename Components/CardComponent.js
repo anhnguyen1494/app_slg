@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import {
     View,
-    Text,
+    Text, TouchableOpacity,
     StyleSheet,
     Image
 } from "react-native";
@@ -12,19 +12,23 @@ class CardComponent extends Component {
 
     render() {
         return (
-            <Card>
-                <CardItem>
-                    <Left>
-                        <Body>
-                            <Text style={{fontWeight: '800'}}>{this.props.title} </Text>
-                            <Text note>{this.props.created_at}</Text>
-                        </Body>
-                    </Left>
-                </CardItem>
-                <CardItem cardBody>
-                    <Image source={{uri: this.props.imageSource}} style={{ height: 200, width: null, flex: 1 }} />
-                </CardItem>
-            </Card>
+            <TouchableOpacity onPress={()=>{
+                alert(JSON.stringify(this.props));
+            }}>
+                <Card>
+                    <CardItem>
+                        <Left>
+                            <Body>
+                                <Text style={{fontWeight: '800'}}>{this.props.title} </Text>
+                                <Text note>{this.props.created_at}</Text>
+                            </Body>
+                        </Left>
+                    </CardItem>
+                    <CardItem cardBody>
+                        <Image source={{uri: this.props.imageSource}} style={{ height: 200, width: null, flex: 1 }} />
+                    </CardItem>
+                </Card>
+            </TouchableOpacity>
         );
     }
 }
