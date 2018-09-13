@@ -13,7 +13,7 @@ class CardComponent extends Component {
     render() {
         return (
             <TouchableOpacity onPress={()=>{
-                alert(JSON.stringify(this.props));
+                this.props.navigation.navigate("Detail",this.props.obj);
             }}>
                 <Card>
                     <CardItem>

@@ -6,7 +6,7 @@ import {
     Platform
 } from "react-native";
 
-import HomeTab from './AppTabNavigator/HomeTab'
+import HomeComponent from './AppTabNavigator/HomeTab'
 import SearchTab from './AppTabNavigator/SearchTab'
 import ChatTab from './AppTabNavigator/ChatTab'
 import ProfileTab from './AppTabNavigator/ProfileTab'
@@ -17,7 +17,7 @@ import { Icon } from 'native-base'
 const AppTabNavigator = createBottomTabNavigator({
 
     HomeTab: {
-        screen: HomeTab
+        screen: HomeComponent
     },
     SearchTab: {
         screen: SearchTab

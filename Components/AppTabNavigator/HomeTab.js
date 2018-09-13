@@ -5,19 +5,36 @@ import {
     StyleSheet,
     ScrollView
 } from "react-native";
+import {
+    StackNavigator
+} from 'react-navigation';
+import DetailBlogComponent from '../screens/DetailBlogComponent';
 
-import { Container, Content, Icon, Thumbnail, Header, Left, Right, Body } from 'native-base'
+import { Container, Content, Icon, Thumbnail, Header, Left, Right, Body } from 'native-base';
 import CardComponent from '../CardComponent'
+import { getBlogsFromServer } from '../../networking/Server';
 
 class HomeTab extends Component {
-
     static navigationOptions = {
-
-        tabBarIcon: ({ tintColor }) => (
-            <Icon name="ios-home" style={{ color: tintColor }} />
-        )
+        header: null,
+        headerBackTitle: 'Home'
     }
-
+    constructor(props){
+        super(props);
+        this.state = {
+            refreshing: false,
+            blogsFromServer: [],
+        };
+    }
+    componentDidMount(){
+        getBlogsFromServer().then((blogs) => {
+            this.setState({blogsFromServer: blogs});
+        }).catch((error) => {
+            this.setState({
+                blogsFromServer: []
+            });
+        });
+    }
     render() {
         return (
             <Container style={styles.container}>
@@ -58,25 +75,42 @@ class HomeTab extends Component {
                             </ScrollView>
                         </View>
                     </View>
-                    <CardComponent title="[Sự Kiện] Khai Mở Máy Chủ S23 - Ân Thiên Chính  lúc 10h ngày 07/09" 
-                        imageSource="https://store-slg.cdn.vccloud.vn/dauhiep/news/dh_s23_khaimo_6-9.jpg"
-                        created_at="06/09/2018 16:37"
-                    />
-                    <CardComponent title="Chuỗi sự kiện tuần 1 tháng 09/2018" 
-                        imageSource="https://store-slg.cdn.vccloud.vn/dauhiep/news/dh_skhot_1-8.jpg"
-                        created_at="04/09/2018 15:55"
-                    />
-                    <CardComponent title="[Thông Báo] Lịch Gộp Server Đợt 3" 
-                        imageSource="https://store-slg.cdn.vccloud.vn/dauhiep/news/dh_ghepsv_1-8.jpg"
-                        created_at="04/09/2018 11:34"
-                    />
+                    {this.state.blogsFromServer.map(eachBlog => {
+                        return <CardComponent key={eachBlog.id}
+                            obj={eachBlog}
+                            title={eachBlog.title}
+                            imageSource={eachBlog.image}
+                            created_at={eachBlog.date}
+                            navigation={this.props.navigation}
+                        />
+                    })}
                 </Content>
             </Container>
         );
     }
 }
-export default HomeTab;
+class HomeComponent extends Component {
+    static navigationOptions = {
+        tabBarIcon: ({ tintColor }) => (
+            <Icon name="ios-home" style={{ color: tintColor }} />
+        )
+    }
+    render() {
+        return (
+            <BlogStackNavigator/>
+        );
+    }
+}
+export default HomeComponent;
 
+const BlogStackNavigator = StackNavigator({
+    Blogs: {
+        screen: HomeTab,
+    },
+    Detail: {
+        screen: DetailBlogComponent,
+    }
+})
 const styles = StyleSheet.create({
     container: {
         flex: 1,
