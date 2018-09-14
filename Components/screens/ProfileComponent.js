@@ -12,10 +12,8 @@ import { Container, Content, Icon, Header, Left, Body, Right, Segment, Button } 
 import EntypoIcon from 'react-native-vector-icons/Entypo';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 var { height, width } = Dimensions.get('window');
-import ProfileComponent from '../screens/ProfileComponent';
-import LoginComponent from '../screens/LoginComponent';
 
-class ProfileTab extends Component {
+class ProfileComponent extends Component {
 
     static navigationOptions = {
         tabBarIcon: ({ tintColor }) => (
@@ -25,11 +23,25 @@ class ProfileTab extends Component {
 
     render() {
         return (
-            <LoginComponent/>
+            <Container style={styles.container}>
+                <Header style={{ paddingLeft: 10, paddingLeft: 10 }}>
+                    <Left>
+                        <Icon name="md-person-add" />
+                    </Left>
+                    <Right>
+                        <EntypoIcon name="back-in-time" style={{ fontSize: 32 }} />
+                    </Right>
+                </Header>
+                <Content>
+                    <Text>Profile</Text>
+                </Content>
+            </Container>
+
+            
         );
     }
 }
-export default ProfileTab;
+export default ProfileComponent;
 
 const styles = StyleSheet.create({
     container: {

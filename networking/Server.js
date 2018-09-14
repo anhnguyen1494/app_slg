@@ -30,8 +30,8 @@ async function getBlogDetailFromServer(id) {
             },
             body: '',
         });
-
-        let blog = await response.status === 200 ? response._bodyInit : '';
+        console.log(response);
+        let blog = await response.status === 200 ? response._bodyText : '';
         return blog;
     } catch (error) {
         alert(error);
