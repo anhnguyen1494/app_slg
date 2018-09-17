@@ -31,7 +31,7 @@ const AppTabNavigator = createBottomTabNavigator({
     }
 
 }, {
-    initialRouteName: 'HomeTab',
+    initialRouteName: 'ProfileTab',
     animationEnabled: true,
     swipeEnabled: true,
     tabBarPosition: 'bottom',

@@ -5,7 +5,7 @@ import {
     TextInput, SafeAreaView, Keyboard, TouchableOpacity,
     KeyboardAvoidingView
 } from 'react-native';
-
+import Icon from 'react-native-vector-icons/Ionicons';
 export default class LoginComponent extends Component {
     render() {
         return (
@@ -38,13 +38,19 @@ export default class LoginComponent extends Component {
                                     ref={"txtPassword"}
                                 />
                                 <TouchableOpacity style={styles.buttLogin}>
-                                    <Text style={styles.buttonText}>Đăng nhập</Text>
+                                    <Text style={styles.buttonText}>
+                                        <Icon name="ios-log-in" size={20}/> Đăng nhập
+                                    </Text>
                                 </TouchableOpacity>
                                 <TouchableOpacity style={styles.buttLoginFB}>
-                                    <Text style={styles.buttonText}>Đăng nhập với Facebook</Text>
+                                    <Text style={styles.buttonText}>
+                                        <Icon name="logo-facebook" size={20}/> Facebook
+                                    </Text>
                                 </TouchableOpacity>
                                 <TouchableOpacity style={styles.buttLoginGG}>
-                                    <Text style={styles.buttonText}>Đăng nhập với Google</Text>
+                                    <Text style={styles.buttonText}>
+                                        <Icon name="logo-google" size={20}/> Google
+                                    </Text>
                                 </TouchableOpacity>
                                 <View style={styles.register}>
                                     <Text style={styles.recomText}>Bạn chưa có tài khoản?</Text>

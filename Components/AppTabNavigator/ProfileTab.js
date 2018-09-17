@@ -14,6 +14,7 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 var { height, width } = Dimensions.get('window');
 import ProfileComponent from '../screens/ProfileComponent';
 import LoginComponent from '../screens/LoginComponent';
+import RegisterComponent from '../screens/RegisterComponent';
 
 class ProfileTab extends Component {
 
@@ -25,7 +26,7 @@ class ProfileTab extends Component {
 
     render() {
         return (
-            <LoginComponent/>
+            <ProfileComponent />
         );
     }
 }
