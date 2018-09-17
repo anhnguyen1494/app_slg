@@ -10,7 +10,7 @@ export default class LoginComponent extends Component {
     render() {
         return (
             <SafeAreaView style={styles.container}>
-                <StatusBar barStyle="light-content" />
+                {/* <StatusBar barStyle="light-content" /> */}
                 <KeyboardAvoidingView behavior='padding' style={styles.container}>
                     <TouchableWithoutFeedback style={styles.container} 
                             onPress={Keyboard.dismiss}>

@@ -3,7 +3,7 @@ import {
     View,
     Text, Image,
     StyleSheet,
-    ScrollView
+    ScrollView, Linking, TouchableOpacity
 } from "react-native";
 import {
     StackNavigator
@@ -59,19 +59,35 @@ class HomeTab extends Component {
                                 }}
 
                             >
-                                <Thumbnail
-                                    style={{ marginHorizontal: 5, borderColor: 'pink', borderWidth: 2 }}
-                                    source={require('../../assets/images/games/45-45-DH.png')} />
-                                <Thumbnail
+                                <TouchableOpacity onPress={()=>{
+                                        Linking.openURL('https://dauhiep.slg.vn/');
+                                    }}>
+                                    <Thumbnail 
+                                        style={{ marginHorizontal: 5, borderColor: 'pink', borderWidth: 2 }}
+                                        source={require('../../assets/images/games/45-45-DH.png')} />
+                                </TouchableOpacity>
+                                <TouchableOpacity onPress={()=>{
+                                        Linking.openURL('http://linhvuong.slg.vn/home/');
+                                    }}>
+                                    <Thumbnail
                                     style={{ marginHorizontal: 5, borderColor: 'pink', borderWidth: 2 }}
                                     source={require('../../assets/images/games/45-45-LV.jpg')} />
-                                <Thumbnail
+                                </TouchableOpacity>
+                                <TouchableOpacity onPress={()=>{
+                                        Linking.openURL('http://op.slg.vn/home/');
+                                    }}>
+                                    <Thumbnail
                                     style={{ marginHorizontal: 5, borderColor: 'pink', borderWidth: 2 }}
                                     source={require('../../assets/images/games/45-45-OP.jpg')} />
-                                <Thumbnail
+                                </TouchableOpacity>
+                                
+                                <TouchableOpacity onPress={()=>{
+                                    Linking.openURL('http://tamquoctruyenky.vn/');
+                                }}>
+                                    <Thumbnail
                                     style={{ marginHorizontal: 5, borderColor: 'pink', borderWidth: 2 }}
                                     source={require('../../assets/images/games/45-45-TQTK.jpg')} />
-
+                                </TouchableOpacity>
                             </ScrollView>
                         </View>
                     </View>
