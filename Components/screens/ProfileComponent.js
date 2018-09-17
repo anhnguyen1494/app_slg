@@ -84,7 +84,9 @@ class ProfileComponent extends Component {
                                 </Text>
                             </View>
                         </TouchableOpacity>
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={() => {
+                            this.props.navigation.navigate('Login');
+                        }}>
                             <View style={styles.button}>
                                 <Text style={styles.buttonTextLeft}>
                                     <Icon name="ios-log-out" size={24} color="#c5c5c5" />

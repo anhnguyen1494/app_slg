@@ -55,17 +55,23 @@ export default class RegisterComponent extends Component {
                                     autoCorrect={false}
                                     ref={"txtRePassword"}
                                 />
-                                <TouchableOpacity style={styles.buttonRegister}>
+                                <TouchableOpacity style={styles.buttonRegister} onPress={() => {
+                                    this.props.navigation.navigate('Profile');
+                                }}>
                                     <Text style={styles.buttonText}> 
                                         <Icon name="ios-person-add" size={20}/> Đăng kí
                                     </Text>
                                 </TouchableOpacity>
-                                <TouchableOpacity style={styles.buttLoginFB}>
+                                <TouchableOpacity style={styles.buttLoginFB} onPress={() => {
+                                    this.props.navigation.navigate('Profile');
+                                }}>
                                     <Text style={styles.buttonText}>
                                         <Icon name="logo-facebook" size={20}/> Facebook
                                     </Text>
                                 </TouchableOpacity>
-                                <TouchableOpacity style={styles.buttLoginGG}>
+                                <TouchableOpacity style={styles.buttLoginGG} onPress={() => {
+                                    this.props.navigation.navigate('Profile');
+                                }}>
                                     <Text style={styles.buttonText}>
                                         <Icon name="logo-google" size={20}/> Google
                                     </Text>

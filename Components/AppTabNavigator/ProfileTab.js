@@ -15,6 +15,7 @@ var { height, width } = Dimensions.get('window');
 import ProfileComponent from '../screens/ProfileComponent';
 import LoginComponent from '../screens/LoginComponent';
 import RegisterComponent from '../screens/RegisterComponent';
+import { createStackNavigator } from 'react-navigation';
 
 class ProfileTab extends Component {
 
@@ -26,11 +27,32 @@ class ProfileTab extends Component {
 
     render() {
         return (
-            <ProfileComponent />
+            <ProfileNavigation/>
         );
     }
 }
 export default ProfileTab;
+
+const ProfileNavigation = createStackNavigator({
+    Login: {
+        screen: LoginComponent,
+        navigationOptions: {
+            header: null
+        }
+    },
+    Register: {
+        screen: RegisterComponent,
+        navigationOptions: {
+            header: null
+        }
+    },
+    Profile: {
+        screen: ProfileComponent,
+        navigationOptions: {
+            header: null
+        }
+    }
+});
 
 const styles = StyleSheet.create({
     container: {

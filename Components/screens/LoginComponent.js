@@ -37,24 +37,32 @@ export default class LoginComponent extends Component {
                                     autoCorrect={false}
                                     ref={"txtPassword"}
                                 />
-                                <TouchableOpacity style={styles.buttLogin}>
+                                <TouchableOpacity style={styles.buttLogin} onPress={() => {
+                                    this.props.navigation.navigate('Profile');
+                                }}>
                                     <Text style={styles.buttonText}>
                                         <Icon name="ios-log-in" size={20}/> Đăng nhập
                                     </Text>
                                 </TouchableOpacity>
-                                <TouchableOpacity style={styles.buttLoginFB}>
+                                <TouchableOpacity style={styles.buttLoginFB} onPress={() => {
+                                    this.props.navigation.navigate('Profile');
+                                }}>
                                     <Text style={styles.buttonText}>
                                         <Icon name="logo-facebook" size={20}/> Facebook
                                     </Text>
                                 </TouchableOpacity>
-                                <TouchableOpacity style={styles.buttLoginGG}>
+                                <TouchableOpacity style={styles.buttLoginGG} onPress={() => {
+                                    this.props.navigation.navigate('Profile');
+                                }}>
                                     <Text style={styles.buttonText}>
                                         <Icon name="logo-google" size={20}/> Google
                                     </Text>
                                 </TouchableOpacity>
                                 <View style={styles.register}>
                                     <Text style={styles.recomText}>Bạn chưa có tài khoản?</Text>
-                                    <TouchableOpacity>
+                                    <TouchableOpacity onPress={()=>{
+                                        this.props.navigation.navigate('Register');
+                                    }}>
                                         <Text style={styles.buttonTextRegister}> Đăng kí tại đây</Text>
                                     </TouchableOpacity>
                                 </View>
@@ -112,17 +120,17 @@ const styles = StyleSheet.create({
     },
     buttLogin: {
         backgroundColor: '#519a31',
-        paddingVertical: 15,
+        paddingVertical: 10,
         marginBottom: 5,
     },
     buttLoginFB: {
         backgroundColor: '#3b5998',
-        paddingVertical: 15,
+        paddingVertical: 10,
         marginBottom: 5,
     },
     buttLoginGG: {
         backgroundColor: '#dd4b39',
-        paddingVertical: 15,
+        paddingVertical: 10,
         marginBottom: 5,
     },
     buttonText: {
