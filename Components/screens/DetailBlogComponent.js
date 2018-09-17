@@ -55,7 +55,7 @@ export default class DetailBlogComponent extends Component {
                         </TouchableOpacity>
                     </Left>
                     <Body>
-                        <Text style={{width:250, alignText: 'center'}}>{this.props.navigation.state.params.title}</Text>
+                        <Text style={{width:250, textAlign: 'center'}}>{this.props.navigation.state.params.title}</Text>
                     </Body>
                     <Right>
                         <TouchableOpacity onPress={()=>{

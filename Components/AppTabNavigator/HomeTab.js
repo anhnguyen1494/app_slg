@@ -13,6 +13,7 @@ import DetailBlogComponent from '../screens/DetailBlogComponent';
 import { Container, Content, Icon, Thumbnail, Header, Left, Right, Body } from 'native-base';
 import CardComponent from '../CardComponent'
 import { getBlogsFromServer } from '../../networking/Server';
+import Swiper from 'react-native-swiper';
 
 class HomeTab extends Component {
     static navigationOptions = {
@@ -43,8 +44,7 @@ class HomeTab extends Component {
                     <Body><Image source={require('../../assets/images/logo-slg.png')}/></Body>
                     <Right><Icon style={{ paddingRight: 10 }} name="ios-search" /></Right>
                 </Header>
-                <Content>
-                    <View style={{ height: 100 }}>
+                <View style={{ height: 100 }}>
                         <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingHorizontal: 7 }}>
                             <Text style={{ fontWeight: 'bold' }}>Games</Text>
                         </View>
@@ -75,6 +75,24 @@ class HomeTab extends Component {
                             </ScrollView>
                         </View>
                     </View>
+                <Content>
+                    <Swiper style={swiperStyles.wrapper} showsButtons={true} autoplay dotStyle={{backgroundColor: '#fff'}}>
+                        <View style={swiperStyles.slide}>
+                            <Image style={swiperStyles.slideImage} source={require('../../assets/images/slider/All.jpg')}/>
+                        </View>
+                        <View style={swiperStyles.slide}>
+                            <Image style={swiperStyles.slideImage} source={require('../../assets/images/slider/Dauhiep.jpg')}/>
+                        </View>
+                        <View style={swiperStyles.slide}>
+                            <Image style={swiperStyles.slideImage} source={require('../../assets/images/slider/LV.jpg')}/>
+                        </View>
+                        <View style={swiperStyles.slide}>
+                            <Image style={swiperStyles.slideImage} source={require('../../assets/images/slider/Op.jpg')}/>
+                        </View>
+                        <View style={swiperStyles.slide}>
+                            <Image style={swiperStyles.slideImage} source={require('../../assets/images/slider/TQ.jpg')}/>
+                        </View>
+                    </Swiper>
                     {this.state.blogsFromServer.map(eachBlog => {
                         return <CardComponent key={eachBlog.id}
                             obj={eachBlog}
@@ -117,3 +135,22 @@ const styles = StyleSheet.create({
         backgroundColor: 'white'
     }
 });
+const swiperStyles = StyleSheet.create({
+    wrapper: {
+        height: 210
+    },
+    slide: {
+        flex: 1,
+    },
+    slideImage: {
+        flex: 1,
+        width: null,
+        height: null,
+        resizeMode: 'contain'
+    },
+    text: {
+        color: '#fff',
+        fontSize: 30,
+        fontWeight: 'bold',
+    }
+})

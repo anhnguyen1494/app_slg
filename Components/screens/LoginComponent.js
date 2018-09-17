@@ -49,7 +49,7 @@ export default class LoginComponent extends Component {
                                 <View style={styles.register}>
                                     <Text style={styles.recomText}>Bạn chưa có tài khoản?</Text>
                                     <TouchableOpacity>
-                                        <Text style={styles.buttonTextRegister}>Đăng kí tại đây</Text>
+                                        <Text style={styles.buttonTextRegister}> Đăng kí tại đây</Text>
                                     </TouchableOpacity>
                                 </View>
                                 
